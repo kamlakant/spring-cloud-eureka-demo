@@ -1,0 +1,8 @@
+---
+server:
+  port: 9001
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://dasher-host:8001/eureka/, http://dancer-host:8002/eureka/

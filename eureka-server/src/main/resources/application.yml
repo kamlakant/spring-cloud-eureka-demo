@@ -1,0 +1,35 @@
+---
+spring:
+  profiles: default
+server:
+  port: 8001
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+
+---
+spring:
+  profiles: dasher
+server:
+  port: 8001
+eureka:
+  instance:
+    hostname: dasher-host
+  client:
+    serviceUrl:
+      defaultZone: http://dancer-host:8002/eureka/
+
+---
+spring:
+  profiles: dancer
+server:
+  port: 8002
+eureka:
+  instance:
+    hostname: dancer-host
+  client:
+    serviceUrl:
+      defaultZone: http://dasher-host:8001/eureka/
